@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+/* color scheme directly from vitesse soft dark theme */
+:root {
+    --background: #222222;
+    --dark-green: #3f6d59;
+    --bright-green: #80a665;
+    --red-ish: #c98a7d;
+    --text: #cecabe;
+}
+
+body {
+    /* theme */
+    background-color: var(--background);
+    color: var(--text);
+
+    /* font */
+    font-family: "JetBrains Mono";
+    font-size: large;
+
+    /* single page */
+    min-height: 100vh;
+    overflow: hidden;
+
+    /* center content */
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+
+    /* align in a column */
+    flex-direction: column;
+
+    /* prevent ugly viewport fit */
+    padding: 5rem;
+}
+
+span {
+    /* display: block; */
+    align-self: flex-start;
+    padding-bottom: 3rem;
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+#animation {
+    height: 1rem;
+    font-style: italic;
+    /* text-decoration: underline wavy;
+    text-decoration-color: var(--red-ish); */
+}
+
+a,
+a:visited {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+    text-decoration-color: var(--dark-green);
+    transition: all, 0.2s;
+}
+
+a:hover {
+    text-decoration-color: var(--bright-green);
+}
+
+a:focus {
+    text-decoration-color: var(--red-ish);
+}
+
+li::marker {
+    transition: all, 0.2s;
+    color: var(--dark-green);
+}
+
+li:has(a:hover)::marker {
+    color: var(--bright-green);
+}
+
+li:has(a:active)::marker {
+    color: var(--red-ish);
+}
