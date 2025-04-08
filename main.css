@@ -5,8 +5,31 @@
     --background: #222222;
     --dark-green: #3f6d59;
     --bright-green: #80a665;
+    --yellow-ish: #b89c43;
     --red-ish: #c98a7d;
     --text: #cecabe;
+}
+
+/* a strong MABY on this one */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at top left, var(--dark-green) 0%, transparent 70%),
+        radial-gradient(circle at bottom right, var(--bright-green) 0%, transparent 70%);
+    animation: pulse-size 10s infinite alternate;
+    opacity: 0.08;
+}
+
+@keyframes pulse-size {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.5);
+    }
 }
 
 body {
@@ -71,6 +94,7 @@ a:focus {
 li::marker {
     transition: all, 0.2s;
     color: var(--dark-green);
+
 }
 
 li:has(a:hover)::marker {
@@ -79,4 +103,61 @@ li:has(a:hover)::marker {
 
 li:has(a:active)::marker {
     color: var(--red-ish);
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+svg {
+    fill: var(--text);
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+    flex: 1;
+    /* Added */
+}
+
+.copyright {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+*::selection {
+    color: var(--dark-green);
+    background-color: var(--text);
+}
+
+.funny {
+    text-decoration: underline wavy var(--red-ish);
+    cursor: pointer;
+}
+
+@keyframes pulse-color {
+    0% {
+        backdrop-filter: brightness(100%);
+    }
+
+    100% {
+        backdrop-filter: brightness(150%);
+    }
+
+    0% {
+        backdrop-filter: brightness(100%);
+    }
 }
