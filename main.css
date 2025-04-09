@@ -161,3 +161,53 @@ svg {
         backdrop-filter: brightness(100%);
     }
 }
+
+/* .sun {
+    height: 10rem;
+    width: 10rem;
+    top: -10rem;
+    left: -10rem;
+    position: absolute;
+    /* animation: move-sun 10s infinite cubic-bezier(0.33, 1, 0.68, 1); */
+    /* offset-path: path('M 120 10 C 90 -20, 30 -20, 0 10');
+    animation: move-along-path 10s infinite linear;
+}
+
+@keyframes move-along-path {
+    0% {
+      offset-distance: 0%;
+    }
+    100% {
+      offset-distance: 100%;
+    }
+  }
+
+@keyframes move-sun {
+    0% {
+        top: 10rem;
+    }
+
+    25% {
+        right: 25%;
+    }
+
+    50% {
+        top: -10rem;
+        left: 50%;
+    }
+
+    75% {
+        left: 75%;
+    }
+
+    100% {
+        top: 10rem;
+        left: 100%;
+    }
+} */
+
+img::selection,
+footer::selection {
+    color: transparent;
+    background-color: transparent;
+}
