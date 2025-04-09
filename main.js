@@ -25,6 +25,7 @@ function typeText(text) {
     let i = 0;
     const interval = setInterval(() => {
         anim_element.textContent += text[i];
+        anim_element.setAttribute("title", anim_element.textContent)
         i++;
         if (i >= text.length) clearInterval(interval);
     }, getRandomInt(40, 60)); // idk why, gonna see if it makes any difference
@@ -100,7 +101,8 @@ document.addEventListener('DOMContentLoaded', function () {
         counter = (counter + 1) % anim_elements.length;
     }, 4000);
 
-    pickRandom()
+    // pickRandom()
+    triggerGlitchEffect()
 })
 
 /**
@@ -135,4 +137,25 @@ function pickRandom() {
             }
         }
     }
+}
+
+function triggerGlitchEffect() {
+    setTimeout(() => {
+        let element = getRandomInt(0, 10) >= 5 ? document.getElementById("name") : document.getElementById("animation");
+        if (element) {
+            element.classList.add('glitch');
+            let content = element.textContent
+            element.setAttribute("title", content)
+            element.onclick = () => {
+                document.body.style.animation = "0.2s pulse-color";
+                setTimeout(() => {
+                    document.body.style.animation = "";
+                }, 500);
+                pickRandom()
+                element.classList.remove('glitch');
+                element.removeAttribute("title")
+                element.onclick = null;
+            }
+        }
+    }, getRandomInt(5000, 10000))
 }
