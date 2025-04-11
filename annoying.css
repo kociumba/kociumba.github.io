@@ -1,0 +1,141 @@
+.toggle-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    transition: all 0.2s;
+}
+
+.toggle-container-toggled {
+    top: 4rem;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    top: 6px;
+    transition: background 0.2s;
+}
+
+.toggle-label::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background: var(--background);
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+/* Checked state styling */
+.toggle-checkbox:checked+.toggle-label {
+    background: var(--red-ish);
+}
+
+.toggle-checkbox:checked+.toggle-label::after {
+    transform: translateX(20px);
+}
+
+.label {
+    position: relative;
+    display: inline-block;
+}
+
+.annoying-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--red-ish);
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 999;
+    padding: 10px 0;
+    height: 3rem;
+}
+
+.banner-carousel {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scrollText 35s linear infinite;
+}
+
+.banner-carousel span {
+    margin-right: 10rem;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.annoying-chatbot {
+    position: fixed;
+    bottom: 3rem;
+    right: 10px;
+    background: var(--yellow-ish);
+    color: var(--background);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* Open state: expanded message box */
+.annoying-chatbot.open {
+    border-radius: 10px;
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+}
+
+/* Styles for the inner message in open state */
+.annoying-chatbot .chatbot-message {
+    display: none;
+}
+
+.annoying-chatbot.open .chatbot-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.annoying-chatbot.open p {
+    margin: 0;
+    text-align: center;
+}
+
+.annoying-chatbot.open button {
+    margin-top: 10px;
+    background: var(--background);
+    color: var(--text);
+    border: none;
+    border-radius: 3px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+}
